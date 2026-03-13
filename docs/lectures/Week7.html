@@ -7588,7 +7588,7 @@ Use your own eyes and brain for this one. The point is developing your own sense
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="A-taste-of-HTML">A taste of HTML<a class="anchor-link" href="#A-taste-of-HTML">¶</a></h3><p>Your website will be built from HTML — the language that web browsers understand. Before we start creating files and pushing them to GitHub, let's play with HTML right here in the notebook.</p>
-<p>Jupyter can render HTML directly using <code>IPython.display.HTML</code>. This means you can experiment and see results instantly, without leaving the notebook. Try running the cell below:</p>
+<p>Jupyter can render HTML directly using <code>IPython.display.HTML</code>. This means you can experiment and see results instantly, without leaving the notebook. Try running the cell below (needless to day, this only works if you download the notebook from the <code>Code</code> part of the GitHub repo, it won't render in the <code>.html</code> version on the course-page):</p>
 </div>
 </div>
 </div>
@@ -7953,7 +7953,10 @@ Full LLM help is fine. Focus on getting everything working.
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <hr/>
 <h2 id="Part-3:-Design-and-Polish">Part 3: Design and Polish<a class="anchor-link" href="#Part-3:-Design-and-Polish">¶</a></h2><p>Your site has content now, but the design probably looks like it was built in 1997. Time to fix that.</p>
-<p>In Exercise 1.1 you looked at professional data viz sites and noted design ideas you liked. Now you'll bring those ideas to life — using your LLM as a design partner. The key is not to ask once and accept whatever it gives you, but to <strong>iterate</strong>: prompt, evaluate, refine, repeat.</p>
+<p>In Exercise 1.1 you looked at professional data viz sites and noted design ideas you liked. Now you'll bring those ideas to life, using your LLM as a design partner. The key is not to ask once and accept whatever it gives you, but to <strong>iterate</strong>: prompt, evaluate, refine, repeat.</p>
+<ul>
+<li><strong>Hint</strong>: This will work better if you use a frontier model. (To test if the exercise for today was even feasible, I started Claude Code in my <code>suneman.github.io</code> and asked it to go online, find info about me, and then create a website based on available info. The first attempt was pretty good: <a href="https://suneman.github.io">https://suneman.github.io</a>)</li>
+</ul>
 </div>
 </div>
 </div>
@@ -7981,7 +7984,7 @@ Full LLM help is fine. Focus on getting everything working.
 </blockquote>
 <p>Something like this might give you something close to professional quality on the first try. The key is being specific about <strong>structure</strong> (what sections, how they're laid out), <strong>style</strong> (colors, fonts, effects), and <strong>constraints</strong> (single file, embedded CSS, responsive).</p>
 <div class="alert alert-block alert-info">
-<b>I don't want you to AI generate the structure OR the text</b>. You come up with the right structure for your project, and you should write the text. I can't tell you how tired I am of reading AI generated generic sentences. You add that stuff ... but it's cool you have the AI come up with an exceptional layout and filler text to get you started.
+<b>I don't want you to AI generate the structure AND I don't want you to use AI to create the text</b>. You should come up with the right structure for your project, and you should write the text. I can't tell you how tired I am of reading AI generated generic sentences. You add that stuff ... but it's cool you have the AI come up with an exceptional layout and filler text to get you started.
 </div>
 <p>You don't need to nail it on the first prompt. Start with something reasonable, look at the result, and refine: <em>"Make the cards wider"</em>, <em>"The header is too tall, shrink it"</em>, <em>"Change the accent color to coral"</em>, <em>"Add more whitespace between sections"</em>. Each round gets you closer to what you actually want.</p>
 </div>
