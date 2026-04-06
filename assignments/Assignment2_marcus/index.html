@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Day in San Francisco's Crime</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0f1117;
+      --surface:  #1a1a2e;
+      --border:   #2a2a4a;
+      --text:     #d4d4d4;
+      --muted:    #888888;
+      --accent:   #4ea8de;
+      --max-w:    860px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 60px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero .kicker {
+      font-family: 'Source Serif 4', serif;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      color: #f0f0f0;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero .dek {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 28px;
+    }
+    .hero .byline {
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Body ── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .prose {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+    .prose p { margin-bottom: 1.3em; }
+    .prose p:last-child { margin-bottom: 0; }
+
+    /* ── Section headers ── */
+    .viz-section {
+      padding: 56px 24px;
+      border-top: 1px solid var(--border);
+    }
+    .viz-section .section-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .viz-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      color: #f0f0f0;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .viz-section .lead {
+      max-width: var(--max-w);
+      margin: 0 auto 36px;
+      color: var(--text);
+    }
+
+    /* ── Viz containers ── */
+    .viz-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .viz-wrap img {
+      width: 100%;
+      max-width: 680px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 6px;
+    }
+    .viz-wrap iframe {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      display: block;
+    }
+    .caption {
+      max-width: var(--max-w);
+      margin: 18px auto 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    /* ── Pull quote ── */
+    blockquote {
+      border-left: 3px solid var(--accent);
+      margin: 36px 0;
+      padding: 12px 0 12px 24px;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #b0b0b0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<!-- ── Hero ── -->
+<header class="hero">
+  <p class="kicker">Data Story &nbsp;·&nbsp; San Francisco Crime 2003–2025</p>
+  <h1>A Day in San Francisco's Crime</h1>
+  <p class="dek">San Francisco has logged nearly three million crimes since 2003. But crime data records what police report, not what happens. The difference is most visible at 13:00 on a Tuesday in the Tenderloin.</p>
+  <p class="byline">DTU 02806 Social Data Analysis &amp; Visualization &nbsp;·&nbsp; Assignment 2</p>
+</header>
+
+<!-- ── Intro ── -->
+<section class="prose">
+  <p>
+    This analysis draws on 2,934,658 SFPD incident reports filed between 2003 and 2025. But crime data is not a neutral record
+    of what happens on the streets. It records what police choose to look for, in the places
+    they choose to look. That distinction matters, and it shows up clearly when you break
+    the data down by hour.
+  </p>
+  <p>
+    We look at five crime types: <strong>Burglary</strong>, <strong>Drug Offense</strong>,
+    <strong>Assault</strong>, <strong>Motor Vehicle Theft</strong>, and
+    <strong>Weapons Offense</strong>. Most follow patterns driven by human behavior.
+    One of them mostly follows police shift schedules. The clearest signal comes from
+    the Tenderloin, a dense, low-income neighborhood just south of downtown that has
+    been the focus of concentrated SFPD enforcement for decades.
+  </p>
+</section>
+
+<!-- ── Viz 1: Crime Clock ── -->
+<section class="viz-section">
+  <div class="container">
+    <h2>The Crime Clock</h2>
+    <p class="lead">
+      The polar chart below shows the hourly distribution of each crime type, normalized to its
+      own peak. A spike at the outer ring means that hour is the busiest for that offense.
+      Most patterns are easy to explain. One is not.
+    </p>
+  </div>
+  <div class="viz-wrap">
+    <img src="crime_clock.png" alt="Polar chart of hourly crime profiles in San Francisco" />
+    <p class="caption">
+      Hourly crime profiles normalized to each crime's peak. Burglary dominates the pre-dawn quiet.
+      Drug Offense spikes at midday, a pattern driven by patrol schedules, not drug use behavior.
+      Assault and Weapons Offense rise sharply into the evening as nightlife takes hold.
+      Motor Vehicle Theft peaks around 18:00 as cars sit unattended after rush hour.
+    </p>
+  </div>
+
+  <div class="prose" style="padding-top: 32px; padding-bottom: 0;">
+    <p>
+      Burglary peaks between midnight and 05:00, when homes are dark and streets are empty.
+      Assault and Weapons Offense peak between 20:00 and 23:00, tracking bar closing times.
+      Motor Vehicle Theft rises with the evening commute and holds overnight.
+      These are all crimes where a victim or witness calls the police after the fact.
+      The reporting time roughly reflects when the crime happened.
+    </p>
+    <p>
+      Drug Offense is different. It peaks at 13:00 on a weekday afternoon and stays
+      elevated through the working day. Drug use does not follow office hours. Police patrols do.
+    </p>
+  </div>
+</section>
+
+<!-- ── Viz 2: District Map ── -->
+<section class="viz-section">
+  <div class="container">
+    <h2>Day vs. Night by District</h2>
+    <p class="lead">
+      If Drug Offense peaks midday because of patrol scheduling, that signal should show up
+      geographically: the most heavily patrolled neighborhoods should look the most daytime-heavy.
+      The map below shows what percentage of the five focus crimes in each district occur during
+      business hours (09:00–17:00). Green districts lean daytime; red districts lean nighttime.
+    </p>
+  </div>
+  <div class="viz-wrap">
+    <iframe src="crime_peak_hour_map.html" height="560" scrolling="no"></iframe>
+    <p class="caption">
+      Percentage of focus crime incidents occurring between 09:00 and 17:00, by police district (2003–2025).
+      The Tenderloin records the highest share of daytime crime, driven by its concentration of
+      drug enforcement activity. Outer residential districts like Richmond show a stronger nighttime lean.
+    </p>
+  </div>
+
+  <div class="prose" style="padding-top: 32px; padding-bottom: 0;">
+    <p>
+      The Tenderloin sits at the top. It is San Francisco's most intensively patrolled neighborhood,
+      with dedicated SFPD operations running there for decades. Its high daytime share is driven
+      almost entirely by Drug Offense. The midday spike in the Crime Clock is not a citywide
+      phenomenon. It is concentrated in a few blocks of one district.
+    </p>
+    <p>
+      The outer residential districts (Richmond, Taraval, Ingleside) sit at the lower end because
+      their dominant crimes are Burglary and Motor Vehicle Theft, which happen at night regardless
+      of patrol density. A stolen car gets reported by its owner. No officer needs to be present
+      to make it into the data.
+    </p>
+  </div>
+</section>
+
+<!-- ── Viz 3: Animated Map ── -->
+<section class="viz-section">
+  <div class="container">
+    <h2>The City, Hour by Hour</h2>
+    <p class="lead">
+      The animated map below puts both stories on the same screen. Each dot is a real incident,
+      sampled proportionally so that busier hours show more dots. The bar chart on the right
+      gives exact counts per crime type. Use the slider to move through the day, or press Play.
+      Watch what happens between 04:00 and 13:00.
+    </p>
+  </div>
+  <div class="viz-wrap">
+    <iframe src="crime_hour_map.html" height="680" scrolling="no"></iframe>
+    <p class="caption">
+      Each dot is a real reported incident, sampled so that busier hours show proportionally more dots.
+      Hover over any dot to see the specific charge, district, and year. Zoom and pan freely.
+      Data: SFPD Incident Reports 2003–2025.
+    </p>
+  </div>
+
+  <div class="prose" style="padding-top: 32px; padding-bottom: 0;">
+    <p>
+      At <strong>04:00</strong> the map is almost entirely blue: Burglary dots spread across
+      the residential west side. At <strong>13:00</strong>, red Drug Offense dots pack into a
+      tight cluster in the Tenderloin while the rest of the city shows almost nothing.
+      By <strong>22:00</strong>, yellow Assault and purple Weapons dots fill the Mission
+      and SoMa bar corridors.
+    </p>
+    <p>
+      The bar chart makes the contrast impossible to miss. Drug Offense at 13:00 has nearly
+      600 dots in the sample. The same crime at 04:00 has fewer than 50. Burglary is the
+      mirror image. These two crimes do not just peak at different times; they barely
+      overlap at all. One is a pattern of behavior. The other is a pattern of policing.
+    </p>
+  </div>
+</section>
+
+<!-- ── Conclusion ── -->
+<section class="prose" style="border-top: 1px solid var(--border);">
+  <p>
+    The Burglary, Assault, Motor Vehicle Theft, and Weapons Offense patterns in this data
+    are almost certainly real: they follow the clock of human activity in ways that
+    make sense independently of policing. Drug Offense does not.
+    That does not mean drug activity in the Tenderloin is not a real problem.
+    It means the data cannot tell you whether it is getting better or worse,
+    because the numbers go up when patrols increase and down when they are cut,
+    regardless of what is actually happening on the street.
+  </p>
+  <p>
+    As Richardson, Schultz, and Crawford (2019) put it, this is "dirty data":
+    when enforcement concentrates on certain places and times, the statistics will
+    always confirm that those places and times have the highest crime, because
+    that is where police are looking.
+  </p>
+  <p>
+    <strong>Data:</strong> SFPD Incident Report dataset from
+    <a href="https://data.sfgov.org" target="_blank">SF Open Data</a>, merged across the
+    2003–2017 and 2018–2025 reporting systems. All times are local San Francisco time.
+    <br>
+    <strong>Reference:</strong> Richardson, R., Schultz, J., &amp; Crawford, K. (2019).
+    Dirty Data, Bad Predictions: How Civil Rights Violations Impact Police Data,
+    Predictive Policing Systems, and Justice.
+    <em>New York University Law Review Online</em>, 94, 192–233.
+  </p>
+</section>
+
+<!-- ── Contributions ── -->
+<section class="prose" style="border-top: 1px solid var(--border);">
+  <h2 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #f0f0f0; margin-bottom: 16px;">Contributions</h2>
+  <p>
+    This assignment has been done solely by me (by choice) — Marcus Lilleør Christoffersen, s224750.
+  </p>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <p>
+    Data: <a href="https://data.sfgov.org" target="_blank">SF Open Data</a> &nbsp;·&nbsp;
+    SFPD Incident Reports 2003–2025 &nbsp;·&nbsp;
+    DTU 02806 Social Data Analysis &amp; Visualization
+  </p>
+</footer>
+
+</body>
+</html>
