@@ -2,3 +2,6 @@
 **/*.parquet
 assignments/Assignment1_marcus/*.csv
 *.geojson
+.DS_Store
+.ipynb_checkpoints/
+data/
