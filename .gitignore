@@ -1,1 +1,4 @@
 **/*.wiki
+**/*.parquet
+assignments/Assignment1_marcus/*.csv
+*.geojson
