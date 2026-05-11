@@ -5,3 +5,4 @@ assignments/Assignment1_marcus/*.csv
 .DS_Store
 .ipynb_checkpoints/
 data/
+citibike_2025
